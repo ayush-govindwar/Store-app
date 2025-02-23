@@ -4,6 +4,7 @@ import "./globals.css";
 import { Inter } from "next/font/google";
 import Navbar from "@/components/navbar/Navbar";
 import Container from "@/components/global/container";
+import Providers from "./providers";
 
 const inter = Inter({ subsets: ["latin"] });
 const geistSans = Geist({
@@ -31,11 +32,14 @@ export default function RootLayout({
       <body
         className={inter.className}
       >
-        <Navbar/>
-        <Container className='py-20'>
-          {children}
-        </Container>
-        
+        <Providers>
+          <Navbar/>
+          <Container className='py-20'>
+            {children}
+          </Container>
+          
+        </Providers>
+
       </body>
     </html>
   );
