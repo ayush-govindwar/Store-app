@@ -14,8 +14,16 @@ generator client { //creating a prisma client
   provider = "prisma-client-js"
 }
 
-model TestProfile {
-id  String @id @default(uuid()) //model have ids uuid-uniqueidentifier
-name String
+model Product {
+  id           String     @id @default(uuid()) //@id marks id as primary key and @default(uuid()) Automatically generates a UUID when a new record is created
+  name        String
+  company     String
+  description String
+  featured   Boolean
+  image       String
+  price       Int
+  createdAt    DateTime   @default(now()) //Sets createdAt to current timestamp when a new record is created
+  updatedAt    DateTime   @updatedAt //Updates updatedAt automatically every time the record is updated
+  clerkId  String //for authentication provider
 }
 //only schema or model changes require migrations in PostgreSQL (or any SQL database using Prisma).
